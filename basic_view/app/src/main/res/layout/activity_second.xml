@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SecondActivity">
+
+
+    <!--디자인만 만들거면 id속성이 없어도 되지만 이벤트를 달거나 db, 서버, 다른 activity에 전송하려면
+        id를 넣어야 한다. (xml문서에서 id로 접근할 수 있으므로) -->
+    <!-- @+id: 식별자를 내가 줄 때, @android: 안드로이드 내부에서 지원해주는 필드값 참조-->
+    <TextView
+        android:id="@+id/second_txtView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="나의 문자열"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+</LinearLayout>
