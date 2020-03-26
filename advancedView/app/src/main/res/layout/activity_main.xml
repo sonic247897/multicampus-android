@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/btnchange"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="이미지 선택"
+        android:onClick="myclick"
+        android:textSize="30sp" />
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <!-- visibility: ImageView의 속성이 아니라 상위클래스 View의 속성이다.
+            setVisibility: 오버라이딩 되어있음(ImageView의 기능이 다르기 때문)-->
+        <ImageView
+            android:id="@+id/img01"
+            android:visibility="visible"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/dream01"
+            />
+        <!--gone: 영역을 없앰(메모리 없앰)
+            invisible: 안보이게 함(영역은 그대로 있음) -->
+        <ImageView
+            android:id="@+id/img02"
+            android:visibility="invisible"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/dream02"
+            />
+        
+    </FrameLayout>
+
+
+</LinearLayout>
