@@ -4,17 +4,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".view.activity.ListViewTestActivity">
+    tools:context=".SpinnerTestActivity"
+    android:orientation="vertical">
     <TextView
-        android:id="@+id/listTxt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="info"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large" />
-    <ListView
-        android:id="@+id/listview1"
+        android:text="좋아하는 과목 선택"/>
+    <Spinner
+        android:id="@+id/spinner01"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+    <TextView
+        android:id="@+id/result"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
-
+    <AutoCompleteTextView
+        android:id="@+id/subjectlist"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
 </LinearLayout>

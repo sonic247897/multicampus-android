@@ -10,6 +10,8 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import exam.day03.view.selectview.R;
+
 public class RadioActivity extends AppCompatActivity {
     // 뷰의 주소값을 담을 참조변수
     RadioButton radio3, radio4;

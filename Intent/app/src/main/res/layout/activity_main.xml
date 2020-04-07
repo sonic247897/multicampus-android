@@ -2,19 +2,21 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".view.activity.ListViewTestActivity">
+    tools:context=".MainActivity">
+
     <TextView
-        android:id="@+id/listTxt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="info"
+        android:text="Hello World!"
         android:textAppearance="@style/TextAppearance.AppCompat.Large" />
-    <ListView
-        android:id="@+id/listview1"
+
+    <Button
+        android:id="@+id/button"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:text="액티비티실행하기" />
 
 </LinearLayout>

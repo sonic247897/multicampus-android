@@ -1,4 +1,4 @@
-package exam.day03.view.selectview;
+package exam.day03.view.selectview.view.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
