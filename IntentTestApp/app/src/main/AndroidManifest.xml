@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="multi.android.intent">
+    package="multi.exam.view.intenttestapp">
 
     <application
         android:allowBackup="true"
@@ -9,14 +9,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".UseOtherApp"></activity>
-        <activity android:name=".ExamFirstActivity" />
-        <activity android:name=".ExamSecondActivity" />
-        <activity android:name=".MainActivity" />
-        <activity android:name=".ReturnDataFirstActivity" />
-        <activity android:name=".ReturnDataSecondActivity" />
-        <activity android:name=".SecondActivity" />
-        <activity android:name=".BasicAppRun">
+        <activity android:name=".OpenActivity">
+            <intent-filter>
+                <action android:name="com.exam.selectview"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -24,6 +23,5 @@
             </intent-filter>
         </activity>
     </application>
-    <!-- 전화걸기는 등록이 필요 -->
-    <uses-permission android:name="android.permission.CALL_PHONE"/>
+
 </manifest>

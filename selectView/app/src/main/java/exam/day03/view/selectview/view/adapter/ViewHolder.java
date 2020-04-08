@@ -20,10 +20,10 @@ public class ViewHolder {
 
     //객체가 생성될 때 targetView(parentView)-convertView를 전달받는다.
     public ViewHolder(View parentView) {
-        this.Img = parentView.findViewById(R.id.examImg);
-        this.nameView = parentView.findViewById(R.id.txtExam1);
-        this.dateView = parentView.findViewById(R.id.txtExam2);;
-        this.msg = parentView.findViewById(R.id.txtExam3);;
-        this.check = parentView.findViewById(R.id.chkExam);;
+        this.Img = parentView.findViewById(R.id.myImg);
+        this.nameView = parentView.findViewById(R.id.name);
+        this.dateView = parentView.findViewById(R.id.date);;
+        this.msg = parentView.findViewById(R.id.resultinfo);;
+        this.check = parentView.findViewById(R.id.exam_chk);;
     }
 }
