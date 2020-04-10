@@ -71,7 +71,7 @@ public class BasicAppRun extends AppCompatActivity {
     // 전화통화는 요금, 개인정보와 관련되어 있으므로
     // manifest에 등록하고 권한을 체크-승인처리 해줘야 한다.
     public void runPermission(){
-        //하위버전이면 실행되지 않도록 처리
+        //하위버전이면 실행되지 않도록 처리(하위버전은 권한체크-승인 필요x)
         // Build: 빌드정보 저장된 객체
         // M: 마시멜로 버전
         if(Build.VERSION.SDK_INT < Build.VERSION_CODES.M){

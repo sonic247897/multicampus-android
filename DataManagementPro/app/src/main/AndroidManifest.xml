@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="multi.android.datamanagementpro">
+    <!--
+     퍼미션을 쓸려면 application 밖에서 설정해야 한다.
+        PermissionTestPro의 SelectView_ExamActivity에서 퍼미션을 걸고 있는 것을 알고있다는 뜻
+    -->
+    <uses-permission android:name="com.exam.permission.JAVA_PERMISSION" /> <!-- 전화, 알람, 인터넷 연결 등 안드로이드 내부의 구성요소가 권한을 가짐 -->
+    <!-- 안드로이드 시스템 권한은 permission이 아니라 바로 use-permission등록해서 사용 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <!--
+ external storage 정책 바뀜
+        29버전: 쓰기는 권한 필요x. 읽기만 권한 필요
+        이전 버전: 쓰기, 읽기 권한 모두 필요
+    -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:requestLegacyExternalStorage="true"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true">
+        <activity android:name=".filesystem.ExternalFileMgr"></activity>
+        <activity android:name=".filesystem.InternalFileMgr" />
+        <activity android:name=".permission.RuntimePermissionTest" />
+        <activity android:name=".permission.BasicPermissionTest" />
+        <activity android:name=".permission.UseCustomPermission" />
+        <activity android:name=".filesystem.NotepadExam">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

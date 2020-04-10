@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="multi.android.permissiontestpro">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <!--2. 퍼미션 설정하기-->
+        <!-- 안드로이드 시스템에서 제공하는 permission이 아니므로 만들어줘야 한다. -->
+        <activity android:name=".SelectView_ExamActivity"
+                android:permission="com.exam.permission.JAVA_PERMISSION">
+            <intent-filter>
+                <action android:name="com.exam.selectview"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+    <!-- 사용자 정의 Permission -->
+    <!-- permission명은 내 마음대로 주면 됨
+        label: 안내문
+        description: 설명(보통 리소스로 관리)
+        android:protectionLevel="normal"
+    -->
+    <permission android:name="com.exam.permission.JAVA_PERMISSION"
+        android:label="JAVA_PERMISSION"
+        android:description="@string/per_msg"
+        android:protectionLevel="normal"
+        />
+
+</manifest>
