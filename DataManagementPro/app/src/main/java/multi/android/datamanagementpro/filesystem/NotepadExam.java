@@ -172,7 +172,7 @@ public class NotepadExam extends AppCompatActivity {
                 br = new BufferedReader(fr);
                 String s = "";
                 while((s=br.readLine())!=null){
-                    txt.append(s);
+                    txt.append(s+"\n");
                 }
             } catch (IOException e) {
                 e.printStackTrace();

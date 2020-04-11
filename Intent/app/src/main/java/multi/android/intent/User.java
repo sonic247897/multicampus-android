@@ -9,8 +9,6 @@ public class User implements Parcelable {
     String name;
     String telNum;
 
-
-
     protected User(Parcel in) {
         name = in.readString();
         telNum = in.readString();
