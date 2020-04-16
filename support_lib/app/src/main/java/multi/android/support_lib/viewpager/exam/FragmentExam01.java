@@ -4,30 +4,20 @@ package multi.android.support_lib.viewpager.exam;
 // androidx
 // android
 
-import android.content.ClipData;
-import android.database.DataSetObserver;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Adapter;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.fragment.app.FragmentStatePagerAdapter;
-import androidx.fragment.app.FragmentTransaction;
-import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
 import java.util.ArrayList;
 
 import multi.android.support_lib.R;
-import multi.android.support_lib.fragment.exam.MapFragment;
 
 public class FragmentExam01 extends AppCompatActivity {
     // 1. ViewPager에 표시할 프래그먼트를 저장할 List
