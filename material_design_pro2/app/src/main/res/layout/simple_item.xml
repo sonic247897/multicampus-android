@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <!-- row 하나에 대한 디자인 -->
+    <TextView
+        android:id="@+id/itemview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:padding="10dp"
+        android:layout_margin="20dp"
+        android:background="#8BC34A"
+        />
+
+</LinearLayout>

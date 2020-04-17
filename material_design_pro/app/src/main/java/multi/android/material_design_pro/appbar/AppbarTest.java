@@ -18,6 +18,7 @@ import android.widget.ListView;
 import android.widget.StackView;
 
 import com.google.android.material.appbar.CollapsingToolbarLayout;
+import com.google.android.material.bottomappbar.BottomAppBar;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
@@ -32,6 +33,7 @@ public class AppbarTest extends AppCompatActivity {
     FloatingActionButton fab;
     ListView listView;
     ArrayList<String> datalist = new ArrayList<String>();
+    BottomAppBar bottomAppBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +42,7 @@ public class AppbarTest extends AppCompatActivity {
         toolbar = findViewById(R.id.toolbar);
         app_bar_image = findViewById(R.id.app_bar_image);
         toolbarLayout = findViewById(R.id.toolbar_layout);
+        bottomAppBar = findViewById(R.id.bottom_bar);
         fab = findViewById(R.id.fab);
         listView = findViewById(R.id.mylistview);
 
@@ -55,6 +58,11 @@ public class AppbarTest extends AppCompatActivity {
         toolbarLayout.setCollapsedTitleGravity(Gravity.CENTER); // 접혀질 때
         // 상수이므로 +로 연결해줄 수 있다!
         toolbarLayout.setExpandedTitleGravity(Gravity.RIGHT+Gravity.TOP); // 펼쳐질 때
+
+        // Fab: Floating action button 에 대한 설정을 바텀앱바에서 할 수 있다!
+        bottomAppBar.setFabAlignmentMode(BottomAppBar.FAB_ALIGNMENT_MODE_CENTER);
+        bottomAppBar.setFabCradleRoundedCornerRadius(100); // 동그랗게 굴려줌
+        bottomAppBar.setFabCradleMargin(20); // 바텀앱바와 fab 사이의 마진
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
                 android.R.layout.simple_list_item_1,
