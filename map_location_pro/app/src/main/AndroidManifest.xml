@@ -3,8 +3,11 @@
     package="multi.android.map_location_pro">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <!-- gps모듈: 항상 된다는 보장 X -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <!-- 네트워크 모듈: 정확도 떨어짐 -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -12,16 +15,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".map.MainActivity"></activity>
-        <activity android:name=".location.BasicLocationTest">
+        <activity android:name=".location.BasicLocationTest2"></activity>
+        <activity android:name=".map.MainActivity" />
+        <activity android:name=".map.MapEventTest" />
+        <activity android:name=".location.LocationMapExam">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-
-        <!-- value에는 API키를 넣는다 -->
+        </activity> <!-- value에는 API키를 넣는다 -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyAIj8THS07YWjcaGWEGeO5vInoSq0c6qtc" />

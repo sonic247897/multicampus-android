@@ -147,6 +147,7 @@ public class BasicLocationTest2 extends AppCompatActivity
         //위치정보를 제공하는 제공자로부터 위치정보를 담고 있는 Location객체를
         //가져오기
         try {
+            // 마지막으로 담고 있던 위치정보 리턴 (getter 메소드)
             Location location =
                     locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
             if(location!=null){

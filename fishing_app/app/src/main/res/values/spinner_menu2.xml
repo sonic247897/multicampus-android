@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="my_array2">
+        <item>시군구 전체</item>
+        <item>앞에 spinner선택에 따라 다르게 출력</item>
+    </string-array>
+
+</resources>
