@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/examtab"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:tabGravity="fill"
+        app:tabMode="fixed"
+        app:tabTextColor="@color/colorPrimary"
+        app:tabSelectedTextColor="@color/colorAccent"
+        android:background="@android:color/background_light"
+        >
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/tab_item1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="날씨" />
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/tab_item2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="어종" />
+
+    </com.google.android.material.tabs.TabLayout>
+
+    <!-- 프레그먼트가 작동하는 레이아웃을 뷰페이저에 담고 이 위에서 동작하게 만들어야 한다. -->
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/fragment_viewPager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/container">
+               <!-- 이 안에 프레그먼트를 정의하세요 -->
+                <!-- fragment 첫번째 뷰 페이지를 연결
+                    id: fragment
+                -->
+               <!--xml에 fragment를 추가하면 동적(코드)으로 제어가 어렵다.  -->
+                <fragment
+                    android:id="@+id/fragment"
+                    android:name="multi.android.fishing_app.ListTestFragment"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"/>
+         </LinearLayout>
+
+    </androidx.viewpager.widget.ViewPager>
+
+
+</LinearLayout>

@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".exam.FragmentExam01"></activity>
+        <activity android:name=".appbar.AppbarTest"></activity>
         <activity android:name=".actionbar.ActionBarNavi" />
         <activity android:name=".actionbar.SubActivity" />
         <activity android:name=".actionbar.ActionBarTest" />
@@ -17,7 +17,7 @@
         <activity android:name=".tab.TabTest" />
         <activity android:name=".MainActivity" />
         <activity android:name=".toolbar.ToolbarTest" />
-        <activity android:name=".appbar.AppbarTest">
+        <activity android:name=".exam.FragmentExam01">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
