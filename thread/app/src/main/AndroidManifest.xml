@@ -9,8 +9,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity"></activity>
-        <activity android:name=".HandlerExam">
+        <activity android:name=".AsyncTaskExam"></activity>
+        <activity android:name=".AsyncTaskTest" />
+        <activity android:name=".HandlerExam" />
+        <activity android:name=".HandlerExam2" />
+        <activity android:name=".MainActivity" />
+        <activity android:name=".Logo" />
+        <activity android:name=".RunOnUiThreadTest">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

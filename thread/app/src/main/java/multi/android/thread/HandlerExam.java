@@ -31,7 +31,7 @@ public class HandlerExam extends AppCompatActivity {
         };
     }
 
-    public void numTxt(View view){
+    public void btn_click(View view){
         new Thread(new Runnable() {
             @Override
             public void run() {
