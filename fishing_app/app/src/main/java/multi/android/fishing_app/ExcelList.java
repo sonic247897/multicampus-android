@@ -22,19 +22,28 @@ public class ExcelList extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_excel_list);
         list_excel = (ListView)findViewById(R.id.list_excel);
-        arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1);
+        arrayAdapter = new ArrayAdapter<String>(this,
+                android.R.layout.simple_list_item_1);
         Excel();
     }
 
     public void Excel() {
+        // 엑셀 IO에 사용될 객체
         Workbook workbook = null;
         Sheet sheet = null;
         try {
-            InputStream inputStream = getBaseContext().getResources().getAssets().open("test.xls");
+            InputStream inputStream = getBaseContext().getResources()
+                                    .getAssets().open("Freshwater.xlsx");
+            // 액셀 객체 생성 - 이거 null뜸!
             workbook = Workbook.getWorkbook(inputStream);
+            // 1번째 시트 불러오기
             sheet = workbook.getSheet(0);
-            int MaxColumn = 2, RowStart = 0, RowEnd = sheet.getColumn(MaxColumn - 1).length -1, ColumnStart = 0, ColumnEnd = sheet.getRow(2).length - 1;
-            for(int row = RowStart;row <= RowEnd;row++) {
+            int MaxColumn = 3;
+            int RowStart = 0;
+            int RowEnd = sheet.getColumn(MaxColumn - 1).length -1;
+            int ColumnStart = 2;
+            int ColumnEnd = sheet.getRow(2).length - 1;
+            for(int row = RowStart; row <= RowEnd; row++) {
                 String excelload = sheet.getCell(ColumnStart, row).getContents();
                 arrayAdapter.add(excelload);
             }
@@ -44,7 +53,9 @@ public class ExcelList extends AppCompatActivity {
             e.printStackTrace();
         } finally {
             list_excel.setAdapter(arrayAdapter);
-            workbook.close();
+            if(workbook != null){
+                workbook.close();
+            }
         }
     }
 
