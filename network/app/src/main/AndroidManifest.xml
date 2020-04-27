@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="multi.android.fishing_app">
+    package="multi.android.network">
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <!-- 안드로이드는 https밖에 못 받아오는데 http통신을 하려니까 오류가 발생한다.
+        android:usesCleartextTraffic="true" 를 걸어주면 자동으로 변환해준다.
+    -->
 
     <application
         android:allowBackup="true"
@@ -8,11 +13,9 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".DBHelper"></activity>
-        <activity android:name=".Main2Activity" />
-        <activity android:name=".MainActivity" />
-        <activity android:name=".ExcelList">
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true">
+        <activity android:name=".http.JSONTestActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
