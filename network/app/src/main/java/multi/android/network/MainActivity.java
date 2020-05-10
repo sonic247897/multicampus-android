@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
             DataOutputStream dos = null;
             try {
                 // 서버 접속
-                socket = new Socket("70.12.116.71", 12345);
+                socket = new Socket("192.168.168.104", 12345);
                 System.out.println("서버접속완료..."+socket);
 
                 is = socket.getInputStream();
