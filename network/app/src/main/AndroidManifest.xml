@@ -17,6 +17,7 @@
         android:usesCleartextTraffic="true">
         <activity android:name=".http.JSONTestActivity"/>
         <activity android:name=".MainActivity"/>
+        <activity android:name=".tcp.ChatClientActivity2"/>
         <activity android:name=".tcp.ChatClientActivity"/>
         <activity android:name=".tcp.StartNetWork">
             <intent-filter>

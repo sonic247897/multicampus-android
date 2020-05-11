@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -33,10 +34,9 @@ public class ChatClientActivity extends AppCompatActivity {
     ListView msg_listview ;
     ListView user_listview ;
     EditText msg_edit;
-    String nickname;
+    String nickname = "";
     Socket socket;
     /* ArrayList<ChatMessage> msg;*/
-    // 벡터 안 써도 되나??
     ArrayList<String> msglist;
     InputStreamReader isr;
     BufferedReader br;
@@ -51,6 +51,11 @@ public class ChatClientActivity extends AppCompatActivity {
     AsyncTaskExam asyncTaskExam;
 
     Handler writeHandler;
+
+    Button nicknameBtn;
+    Button serverBtn;
+    int serverIdx;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,6 +63,9 @@ public class ChatClientActivity extends AppCompatActivity {
         msg_listview = findViewById(R.id.chat_list);
         user_listview = findViewById(R.id.user_list);
         msg_edit = findViewById(R.id.msg_edit);
+        nicknameBtn = findViewById(R.id.nicknameBtn);
+        serverBtn = findViewById(R.id.serverBtn);
+
        /* msg = new ArrayList<ChatMessage>();*/
         msglist = new ArrayList<String>();
         msgadapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, msglist);
@@ -82,9 +90,28 @@ public class ChatClientActivity extends AppCompatActivity {
 
 	//서버접속버튼을 누르면 호출되는 메소드
     public void server_connect(View view){
-        msglist.add("서버와 연결되었습니다.");
+        if(nickname.equals("")){
+            Toast.makeText(this, "닉네임을 등록하세요", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        msglist.add("@@서버와 연결되었습니다.");
         msg_listview.setAdapter(msgadapter);
         asyncTaskExam.execute(10,20);
+        /*if(serverIdx==0){
+            serverIdx =1;
+            msglist.add("@@서버와 연결되었습니다.");
+            msgadapter.notifyDataSetChanged();
+            asyncTaskExam = new AsyncTaskExam();
+            asyncTaskExam.execute(10,20);
+        }
+        else{
+            serverIdx = 0;
+            msglist.add("@@서버와 연결이 해제되었습니다.");
+            msgadapter.notifyDataSetChanged();
+            userlist.remove(0);
+            useradapter.notifyDataSetChanged();
+            asyncTaskExam.cancel(true);
+        }*/
     }
     public void btn_send(View view){
         // 네트워크 작업은 스레드에서 동작해야 한다
@@ -129,6 +156,13 @@ public class ChatClientActivity extends AppCompatActivity {
     //서버로부터 데이터 읽기
     class AsyncTaskExam extends AsyncTask<Integer,String,String> {
         @Override
+        protected void onPreExecute() {
+            // 실행 중에는 다시 못누르게 함
+            nicknameBtn.setClickable(false);
+            serverBtn.setClickable(false);
+        }
+
+        @Override
         protected String doInBackground(Integer... integers) {
             //서버와 접속하여 서버가 보내오는 메시지를 읽을 수 있도록 작성하세요
             try {
@@ -149,6 +183,7 @@ public class ChatClientActivity extends AppCompatActivity {
                     @Override
                     public void run() {
                         while(true) {
+                            if (isCancelled()) break;
                             String msg = "";
                             try {
                                 msg = br.readLine();
@@ -157,7 +192,8 @@ public class ChatClientActivity extends AppCompatActivity {
                             } catch (IOException e) {
                                 // 서버쪽에서 연결이 끊어지는 경우 사용자는 자원을 반납 ==========
                                 // - null체크 필요
-                                msglist.add("서버와 연결이 끊어졌습니다.");
+                                Log.d("disconnect", "끊어짐");
+                                msglist.add("@@서버와 연결이 끊어졌습니다.");
                                 publishProgress("disconnect");
                                 try {
                                     if(isr != null) isr.close();
@@ -234,18 +270,33 @@ public class ChatClientActivity extends AppCompatActivity {
             switch (values[0]){
                 case "new":
                 case "out":
-                    user_listview.setAdapter(useradapter);
-                    msg_listview.setAdapter(msgadapter);
+                    //user_listview.setAdapter(useradapter);
+                    useradapter.notifyDataSetChanged();
+                    //msg_listview.setAdapter(msgadapter);
+                    msgadapter.notifyDataSetChanged();
                     break;
                 case "old":
                     user_listview.setAdapter(useradapter);
                     break;
                 case "chatting":
+                    msgadapter.notifyDataSetChanged();
+                    // 포커스
+                    msg_listview.setSelection(msglist.size() - 1);
+                    break;
                 case "disconnect":
-                    msg_listview.setAdapter(msgadapter);
+                    msgadapter.notifyDataSetChanged();
                     break;
             }
         }
+
+        // 종료하고 반납(UI 스레드)
+        @Override
+        protected void onPostExecute(String s) {
+            super.onPostExecute(s);
+            nicknameBtn.setClickable(true);
+            serverBtn.setClickable(true);
+        }
+
     }
 
 
@@ -253,7 +304,12 @@ public class ChatClientActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        // 유저가 나갈 때 자원 반납
         try {
+            if(isr != null) isr.close();
+            if(br != null) br.close();
+            if(os != null) os.close();
+            if(pw != null) pw.close();
             if(socket != null) socket.close();
         } catch (IOException e) {
             e.printStackTrace();
