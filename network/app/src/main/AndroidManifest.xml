@@ -2,10 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="multi.android.network">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <!-- 안드로이드는 https밖에 못 받아오는데 http통신을 하려니까 오류가 발생한다.
-        android:usesCleartextTraffic="true" 를 걸어주면 자동으로 변환해준다.
-    -->
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -15,9 +12,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".http.JSONTestActivity"/>
-        <activity android:name=".MainActivity"/>
-        <activity android:name=".tcp.ChatClientActivity"/>
+        <activity android:name=".tcp.ArduinoExam"></activity>
+        <activity android:name=".http.JSONTestActivity" />
+        <activity android:name=".MainActivity" />
+        <activity android:name=".tcp.ChatClientActivity" />
+        <activity android:name=".tcp.ChatClientActivity2" />
         <activity android:name=".tcp.StartNetWork">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
