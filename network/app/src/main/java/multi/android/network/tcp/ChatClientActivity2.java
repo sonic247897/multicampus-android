@@ -79,14 +79,14 @@ public class ChatClientActivity2 extends AppCompatActivity {
     }
     public void server_connect(View view){
 
-        asyncTaskExam.execute(10,20);
+            asyncTaskExam.execute(10,20);
     }
     public void btn_send(View view){
       /*  asyncTaskExam.sendMsg("chatting/"+msg_edit.getText().toString()
                 +"/"+nickname);*/
-        sendMessage("chatting/"+msg_edit.getText().toString()
-                +"/"+nickname);
-        msg_edit.setText("");
+      sendMessage("chatting/"+msg_edit.getText().toString()
+              +"/"+nickname);
+      msg_edit.setText("");
     }
     public void sendMessage(final String message) {
         new Thread(new Runnable() {
@@ -114,7 +114,7 @@ public class ChatClientActivity2 extends AppCompatActivity {
         @Override
         protected String doInBackground(Integer... integers) {
             try {
-                socket = new Socket("70.12.116.71", 12345);
+                socket = new Socket("70.12.116.55", 12345);
                 if(socket!=null){
                     ioWork();
                 }

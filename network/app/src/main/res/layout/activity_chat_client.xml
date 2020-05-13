@@ -32,20 +32,22 @@
                 android:layout_margin="5dp"
                 android:background="#F0F2D7"
                 />
+
             <Button
-                android:text="닉네임입력"
+                android:id="@+id/nicknameBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="3"
                 android:onClick="nickname_input"
-                />
+                android:text="닉네임입력" />
+
             <Button
-                android:text="서버접속"
+                android:id="@+id/serverBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="3"
                 android:onClick="server_connect"
-                />
+                android:text="서버접속" />
         </LinearLayout>
 
     </LinearLayout>
