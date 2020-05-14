@@ -12,12 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".tcp.ArduinoExam"></activity>
         <activity android:name=".http.JSONTestActivity"/>
         <activity android:name=".MainActivity"/>
         <activity android:name=".tcp.ChatClientActivity2"/>
         <activity android:name=".tcp.ChatClientActivity"/>
-        <activity android:name=".tcp.StartNetWork">
+        <activity android:name=".tcp.StartNetWork"/>
+        <activity android:name=".arduino.LedControlActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
