@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1079863101621",
+    "firebase_url": "https://myfcmpro-88837.firebaseio.com",
+    "project_id": "myfcmpro-88837",
+    "storage_bucket": "myfcmpro-88837.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1079863101621:android:d0a056f6c55407edbe16fc",
+        "android_client_info": {
+          "package_name": "multi.android.fcmpro"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1079863101621-q2183noe66ktkku8oea3g0ulcl35cq8s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAfnaw9D4G5NPfH4BozUN-i1IbZSJlhqFw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1079863101621-q2183noe66ktkku8oea3g0ulcl35cq8s.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
