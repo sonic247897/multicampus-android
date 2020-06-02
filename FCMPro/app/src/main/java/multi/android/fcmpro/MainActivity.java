@@ -1,12 +1,10 @@
 package multi.android.fcmpro;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
-import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -27,9 +25,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         getToken();
     }
-    public void request(View view){
+
+    /*public void request(View view){
         new rquestThread("2").start();
-    }
+    }*/
+
     //토큰을 생성하고 만드는 작업
     public void getToken(){
         FirebaseInstanceId.getInstance().getInstanceId()
@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
             try {
                 OkHttpClient client = new OkHttpClient();
                 Request.Builder builder = new Request.Builder();
-                builder = builder.url("http://70.12.224.58:8088/bigdataShop/fcm/fcm_check?token="+token);
+                builder = builder.url("http://70.12.116.55:8088/gunzip_final/fcm/fcm_check?token="+token);
                 Request request = builder.build();
                 Call newcall = client.newCall(request);
                 newcall.execute();
@@ -69,7 +69,8 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     }
-    class rquestThread extends Thread{
+
+    /*class rquestThread extends Thread{
         String id;
         public rquestThread(String id) {
             this.id = id;
@@ -81,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
             try {
                 OkHttpClient client = new OkHttpClient();
                 Request.Builder builder = new Request.Builder();
-                builder = builder.url("http://70.12.224.58:8088/bigdataShop/fcm/sendClient?id="+id);
+                builder = builder.url("http://70.12.116.55:8088/gunzip_final/fcm/sendClient?id="+id);
                 Request request = builder.build();
                 Call newcall = client.newCall(request);
                 newcall.execute();
@@ -89,5 +90,5 @@ public class MainActivity extends AppCompatActivity {
                 e.printStackTrace();
             }
         }
-    }
+    }*/
 }
